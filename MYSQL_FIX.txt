@@ -1,0 +1,20 @@
+=============================================
+  MYSQL max_allowed_packet FIX FOR XAMPP
+=============================================
+
+Problem: "Got a packet bigger than 'max_allowed_packet' bytes"
+
+SOLUTION:
+
+Step 1: Open my.ini file
+  Location: C:\xampp\mysql\bin\my.ini
+
+Step 2: Find [mysqld] section
+
+Step 3: Add this line under [mysqld]:
+  max_allowed_packet=64M
+
+Step 4: Save and restart MySQL from XAMPP
+
+Done!
+=============================================

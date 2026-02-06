@@ -1,0 +1,106 @@
+╔══════════════════════════════════════════════════════════════════╗
+║        AROXA CROP SCIENCE - QUICK START GUIDE                    ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 PREREQUISITES:
+   ✓ XAMPP installed
+   ✓ Node.js installed
+   ✓ Internet connection (for first-time setup)
+
+🚀 QUICK SETUP (5 STEPS):
+
+┌─ STEP 1: Start XAMPP ────────────────────────────────────────────┐
+│ 1. Open XAMPP Control Panel                                      │
+│ 2. Click "Start" for Apache                                      │
+│ 3. Click "Start" for MySQL                                       │
+│ 4. Wait for green "Running" status                               │
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ STEP 2: Setup Database ─────────────────────────────────────────┐
+│ Option A - Automatic (Recommended):                              │
+│    • Double-click: setup-database.bat                            │
+│                                                                   │
+│ Option B - Manual:                                               │
+│    • Open: http://localhost/phpmyadmin                           │
+│    • Create database: aroxa_cropscience                          │
+│    • Import: database/schema.sql                                 │
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ STEP 3: Install Dependencies ───────────────────────────────────┐
+│ • Open Command Prompt in this folder                             │
+│ • Run: npm install                                               │
+│ • Wait 2-3 minutes for completion                                │
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ STEP 4: Start Website ──────────────────────────────────────────┐
+│ • Run: npm run dev                                               │
+│ • Wait for "Ready" message                                       │
+│ • Don't close Command Prompt                                     │
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ STEP 5: Open Website ───────────────────────────────────────────┐
+│ • Open browser                                                    │
+│ • Visit: http://localhost:3000                                   │
+│ • You should see the Aroxa homepage!                             │
+└──────────────────────────────────────────────────────────────────┘
+
+🔐 ADMIN LOGIN:
+   • Click "Login" in header
+   • Default PIN: 123456
+   • Change PIN in .env.local file
+
+📦 ADD PRODUCTS:
+   1. Login to admin
+   2. Click "Add Product"
+   3. Fill in details (batch number auto-generates)
+   4. QR code generates automatically
+   5. View product on Products page
+
+🎨 THEME COLOR: #7DD50B (Green) + White
+
+📁 PROJECT STRUCTURE:
+   ├── app/              → Pages & API routes
+   ├── components/       → Header, Footer
+   ├── lib/             → Database & utilities
+   ├── types/           → TypeScript types
+   ├── database/        → SQL schema
+   └── .env.local       → Configuration
+
+⚠️  IMPORTANT NOTES:
+   • Keep XAMPP MySQL running while using website
+   • Keep Command Prompt open (npm run dev)
+   • Change default PIN (123456) in .env.local
+   • Database name must be: aroxa_cropscience
+
+🆘 TROUBLESHOOTING:
+
+   Problem: "Cannot connect to database"
+   Solution: Check XAMPP MySQL is running
+
+   Problem: "Port 3000 already in use"
+   Solution: Run: npm run dev -- -p 3001
+
+   Problem: "Invalid PIN"
+   Solution: Check .env.local file, default is 123456
+
+   Problem: Products not showing
+   Solution: Add products from Admin Panel first
+
+📞 SUPPORT:
+   • Read: README.md (detailed documentation)
+   • Read: SETUP.md (step-by-step guide)
+   • Email: info@aroxacropscience.com
+
+✅ VERIFICATION CHECKLIST:
+   □ XAMPP MySQL running (green in control panel)
+   □ Database aroxa_cropscience exists
+   □ npm install completed without errors
+   □ npm run dev shows "Ready"
+   □ Website opens at localhost:3000
+   □ Admin login works with PIN 123456
+   □ Can add products
+   □ Products show on Products page
+
+╔══════════════════════════════════════════════════════════════════╗
+║  🎉 Setup Complete! Enjoy your new website!                      ║
+╚══════════════════════════════════════════════════════════════════╝

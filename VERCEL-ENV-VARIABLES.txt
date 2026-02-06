@@ -1,0 +1,56 @@
+🔧 VERCEL ENVIRONMENT VARIABLES - Copy & Paste These
+================================================================
+
+⚠️ IMPORTANT: Add these ONE BY ONE in Vercel Dashboard
+   Settings → Environment Variables
+
+================================================================
+
+1. DATABASE_HOST
+gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+
+2. DATABASE_USER
+2jMDEiGPfiY577m.root
+
+3. DATABASE_PASSWORD
+⚠️ GET THIS FROM TIDB CLOUD DASHBOARD:
+   https://tidbcloud.com/clusters/10288133458141763452/overview
+   Click "Connect" → Generate Password → Copy the password
+
+4. DATABASE_NAME
+test
+
+5. DATABASE_PORT
+4000
+
+6. DATABASE_SSL
+true
+
+7. ADMIN_USERNAME
+admin
+
+8. ADMIN_PASSWORD
+$2b$10$fZluYrKzYs57m6smvaJQYuER8ETgHeo4TOWNCmtRT86fn/lyBdCam
+
+9. NEXT_PUBLIC_APP_URL
+⚠️ UPDATE AFTER FIRST DEPLOY:
+   Will be: https://aroxacropscience.vercel.app (or similar)
+   Leave blank for now, update after first deployment
+
+================================================================
+
+✅ CHECKLIST:
+□ All 9 environment variables added to Vercel
+□ TiDB password generated and added
+□ Project connected to: https://github.com/saurav1702/aroxacropscience
+□ First deployment triggered
+□ NEXT_PUBLIC_APP_URL updated with actual URL
+□ Redeploy after updating NEXT_PUBLIC_APP_URL
+
+================================================================
+
+Your Admin Login Credentials:
+Username: admin
+Password: 231105
+
+================================================================

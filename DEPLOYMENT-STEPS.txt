@@ -1,0 +1,126 @@
+🚀 VERCEL DEPLOYMENT - STEP BY STEP (10 Minutes)
+================================================================
+
+📌 STEP 1: GET TIDB PASSWORD (2 minutes)
+================================================================
+1. Go to: https://tidbcloud.com/clusters/10288133458141763452/overview
+2. Click "Connect" button
+3. Click "Generate Password" or "Reset Password"
+4. Copy the password (you'll need it in Step 4)
+5. Keep this tab open
+
+
+📌 STEP 2: DELETE OLD VERCEL PROJECT (1 minute)
+================================================================
+1. Go to: https://vercel.com/mehulk-7245s-projects
+2. Login: mehul.k@cre8r.in / 231105
+3. Find old project (if exists)
+4. Settings → Advanced → Delete Project
+
+
+📌 STEP 3: CREATE NEW VERCEL PROJECT (2 minutes)
+================================================================
+1. Click "Add New..." → "Project"
+2. Click "Import Git Repository"
+3. Paste: https://github.com/saurav1702/aroxacropscience
+4. Click "Import"
+5. Verify settings (auto-detected):
+   ✅ Framework: Next.js
+   ✅ Build Command: npm run build
+   ✅ Output Directory: .next
+
+
+📌 STEP 4: ADD ENVIRONMENT VARIABLES (3 minutes)
+================================================================
+Click "Environment Variables" section and add these 9 variables:
+
+⚠️ COPY FROM: VERCEL-ENV-VARIABLES.txt file in this folder
+
+1. DATABASE_HOST = gateway01.ap-southeast-1.prod.aws.tidbcloud.com
+2. DATABASE_USER = 2jMDEiGPfiY577m.root
+3. DATABASE_PASSWORD = [PASTE FROM STEP 1]
+4. DATABASE_NAME = test
+5. DATABASE_PORT = 4000
+6. DATABASE_SSL = true
+7. ADMIN_USERNAME = admin
+8. ADMIN_PASSWORD = $2b$10$fZluYrKzYs57m6smvaJQYuER8ETgHeo4TOWNCmtRT86fn/lyBdCam
+9. NEXT_PUBLIC_APP_URL = [LEAVE BLANK FOR NOW]
+
+
+📌 STEP 5: DEPLOY (2 minutes)
+================================================================
+1. Click "Deploy" button
+2. Wait 2-3 minutes for build
+3. You'll get a URL like: https://aroxacropscience-xxxxx.vercel.app
+4. Copy this URL
+
+
+📌 STEP 6: UPDATE APP URL (2 minutes)
+================================================================
+1. Go to: Settings → Environment Variables
+2. Find "NEXT_PUBLIC_APP_URL"
+3. Update with your actual URL (from Step 5)
+4. Click "Save"
+5. Go to: Deployments → Click "Redeploy"
+
+
+📌 STEP 7: SETUP DATABASE (5 minutes)
+================================================================
+1. Go back to TiDB Dashboard
+2. Click "Chat2Query" or "SQL Editor"
+3. Copy ALL SQL from: DEPLOY-TO-VERCEL-TIDB.md (lines 127-212)
+4. Paste and run the SQL
+5. Verify tables created: Run "SHOW TABLES;"
+   Should see: migrations, admin_sessions, custom_fields, products, contact_inquiries
+
+
+📌 STEP 8: TEST YOUR APP (3 minutes)
+================================================================
+1. Visit: https://your-app.vercel.app
+2. Login with:
+   - Username: admin
+   - Password: 231105
+3. Go to "Add Product"
+4. Create a test product
+5. Test QR code
+6. Download label
+
+
+================================================================
+✅ SUCCESS CHECKLIST:
+================================================================
+□ TiDB password generated
+□ Old Vercel project deleted
+□ New project created and connected to correct repo
+□ All 9 environment variables added
+□ First deployment successful
+□ NEXT_PUBLIC_APP_URL updated
+□ Second deployment successful
+□ Database tables created in TiDB
+□ Admin login working
+□ Product creation working
+□ QR codes working
+
+================================================================
+
+🐛 TROUBLESHOOTING:
+================================================================
+
+Build Failed?
+→ Check build logs in Vercel
+→ Verify all environment variables are set
+→ Check DATABASE_PASSWORD is correct
+
+Database Connection Failed?
+→ Verify TiDB password in Vercel env variables
+→ Check DATABASE_SSL=true is set
+→ Test connection in TiDB dashboard
+
+Admin Login Not Working?
+→ Check ADMIN_PASSWORD hash is correct
+→ Clear browser cookies
+→ Try incognito mode
+
+================================================================
+
+Need help? Share the error message!
