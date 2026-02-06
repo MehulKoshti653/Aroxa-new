@@ -25,12 +25,10 @@ export async function GET(request: NextRequest) {
       params.push(searchTerm, searchTerm, searchTerm);
     }
 
-    // Add ordering and pagination
-    query += ' ORDER BY created_at DESC LIMIT ? OFFSET ?';
+    // Add ordering and pagination (TiDB requires explicit numbers for LIMIT/OFFSET)
+    query += ` ORDER BY created_at DESC LIMIT ${limit} OFFSET ${offset}`;
 
-    const queryParams = [...params, limit, offset];
-
-    const [rows]: any = await pool.execute(query, queryParams);
+    const [rows]: any = await pool.execute(query, params);
     const [countResult]: any = await pool.execute(countQuery, params);
 
     const total = countResult[0].total;
