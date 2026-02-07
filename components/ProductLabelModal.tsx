@@ -91,29 +91,29 @@ export default function ProductLabelModal({ product, onClose }: ProductLabelModa
             >
               <div className="flex items-center justify-between h-full px-6">
                 {/* Left Side - Values Only (No Labels) */}
-                <div className="flex-1 pr-8 flex flex-col justify-center space-y-5">
+                <div className="flex-1 pr-8 flex flex-col justify-center space-y-2">
                   {/* Batch Number */}
-                  <div className="text-3xl font-bold text-black">
+                  <div className="text-3xl font-bold text-black leading-tight">
                     {product.batch_no}
                   </div>
 
                   {/* MFG Date */}
-                  <div className="text-2xl font-bold text-black">
+                  <div className="text-3xl font-bold text-black leading-tight">
                     {formatDate(String(data.mfg_date || ""))}
                   </div>
 
                   {/* EXP Date */}
-                  <div className="text-2xl font-bold text-black">
+                  <div className="text-3xl font-bold text-black leading-tight">
                     {formatDate(String(data.exp_date || ""))}
                   </div>
 
                   {/* MRP */}
-                  <div className="text-3xl font-bold text-black">
+                  <div className="text-3xl font-bold text-black leading-tight">
                     {data.price ? `₹${data.price}` : 'N/A'}
                   </div>
 
                   {/* Unit Price */}
-                  <div className="text-2xl font-bold text-black">
+                  <div className="text-3xl font-bold text-black leading-tight">
                     {data.unit_price ? `₹${data.unit_price}` : 'N/A'}
                   </div>
                 </div>
