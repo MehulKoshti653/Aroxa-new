@@ -86,34 +86,34 @@ export default function ProductLabelModal({ product, onClose }: ProductLabelModa
           <div className="flex justify-center mb-6">
             <div
               ref={labelRef}
-              className="border-4 border-gray-800 bg-white p-4"
+              className=" bg-white p-4"
               style={{ width: '600px', height: '300px' }}
             >
               <div className="flex items-center justify-between h-full px-6">
                 {/* Left Side - Values Only (No Labels) - All 3xl fonts */}
                 <div className="flex-1 pr-2 flex flex-col justify-center items-center">
                   {/* Batch Number */}
-                  <div className="text-5xl font-bold text-black">
+                  <div className="text-4xl font-bold text-black">
                     {product.batch_no}
                   </div>
 
                   {/* MFG Date */}
-                  <div className="text-5xl font-bold text-black">
+                  <div className="text-4xl font-bold text-black">
                     {formatDate(String(data.mfg_date || ""))}
                   </div>
 
                   {/* EXP Date */}
-                  <div className="text-5xl font-bold text-black">
+                  <div className="text-4xl font-bold text-black">
                     {formatDate(String(data.exp_date || ""))}
                   </div>
 
                   {/* MRP */}
-                  <div className="text-5xl font-bold text-black">
+                  <div className="text-4xl font-bold text-black">
                     {data.price ? `₹${data.price}` : 'N/A'}
                   </div>
 
                   {/* Unit Price */}
-                  <div className="text-5xl font-bold text-black">
+                  <div className="text-4xl font-bold text-black">
                     {data.unit_price ? `₹${data.unit_price}` : 'N/A'}
                   </div>
                 </div>
