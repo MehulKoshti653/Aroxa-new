@@ -120,15 +120,15 @@ export default function ProductLabelModal({ product, onClose }: ProductLabelModa
 
                 {/* Right Side - QR Code */}
                 <div className="flex items-center justify-center">
-                  <div className="bg-white p-2 border-2 border-black">
+                  <div className="bg-white p-3 border-2 border-black">
                     {product.qr_code ? (
                       <img
                         src={product.qr_code}
                         alt="QR Code"
-                        className="w-44 h-44"
+                        className="w-56 h-56"
                       />
                     ) : (
-                      <div className="w-44 h-44 bg-gray-200 flex items-center justify-center">
+                      <div className="w-56 h-56 bg-gray-200 flex items-center justify-center">
                         <span className="text-gray-500">No QR</span>
                       </div>
                     )}
