@@ -64,8 +64,8 @@ export default function ProductDetailPage() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Product Image & Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+          {/* Left Column - Product Image & Name */}
           <div>
             {/* Product Image */}
             {product.product_image ? (
@@ -90,8 +90,27 @@ export default function ProductDetailPage() {
                 <p className="text-2xl text-gray-600 font-medium">{String(data.technical_name)}</p>
               )}
             </div>
+          </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-lg border-2 border-gray-200 mb-6">
+          {/* Right Column - QR Code & Product Information */}
+          <div className="space-y-6">
+            {/* QR Code Section */}
+            {product.qr_code && (
+              <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 flex flex-col items-center">
+                <h2 className="text-2xl font-bold mb-4 text-gray-900">📱 Scan QR Code</h2>
+                <img
+                  src={product.qr_code}
+                  alt="Product QR Code"
+                  className="w-64 h-64 border-2 border-gray-300 rounded-lg"
+                />
+                <p className="text-sm text-gray-600 mt-4 text-center">
+                  Scan to view product details
+                </p>
+              </div>
+            )}
+
+            {/* Product Details */}
+            <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-lg border-2 border-gray-200">
               <h2 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
                 <span className="mr-3">📋</span> Product Details
               </h2>
@@ -129,8 +148,9 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
+            {/* Pricing */}
             {(data.price || data.unit_price) && (
-              <div className="p-8 rounded-xl shadow-2xl mb-6" style={{ background: 'linear-gradient(to right, #7DD50B, #6BC509)', color: '#ffffff' }}>
+              <div className="p-8 rounded-xl shadow-2xl" style={{ background: 'linear-gradient(to right, #7DD50B, #6BC509)', color: '#ffffff' }}>
                 <h2 className="text-2xl font-bold mb-6 flex items-center" style={{ color: '#ffffff' }}>
                   <span className="mr-3">💰</span> Pricing
                 </h2>
@@ -155,6 +175,7 @@ export default function ProductDetailPage() {
               </div>
             )}
 
+            {/* Web Link Button */}
             {data.web_link && (
               <a
                 href={String(data.web_link)}
@@ -166,9 +187,10 @@ export default function ProductDetailPage() {
               </a>
             )}
           </div>
+        </div>
 
-          {/* Right Column - Additional Info */}
-          <div className="space-y-6">
+        {/* Bottom Section - Full Width - Recommendation & How to Use */}
+        <div className="space-y-6">
 
             {data.recommendation && (
               <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 p-8 rounded-xl shadow-lg">
@@ -192,19 +214,18 @@ export default function ProductDetailPage() {
               </div>
             )}
 
-            {/* Contact CTA */}
-            <div className="bg-gray-900 text-white p-8 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-3">Need More Information?</h3>
-              <p className="text-gray-300 mb-6">
-                Our team is ready to assist you with detailed product information and recommendations.
-              </p>
-              <a
-                href="/contact"
-                className="inline-block bg-[#7DD50B] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#6BC509] transition-colors shadow-md"
-              >
-                Contact Us
-              </a>
-            </div>
+          {/* Contact CTA */}
+          <div className="bg-gray-900 text-white p-8 rounded-xl shadow-lg">
+            <h3 className="text-2xl font-bold mb-3">Need More Information?</h3>
+            <p className="text-gray-300 mb-6">
+              Our team is ready to assist you with detailed product information and recommendations.
+            </p>
+            <a
+              href="/contact"
+              className="inline-block bg-[#7DD50B] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#6BC509] transition-colors shadow-md"
+            >
+              Contact Us
+            </a>
           </div>
         </div>
       </div>
