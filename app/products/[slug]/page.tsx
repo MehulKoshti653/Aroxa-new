@@ -92,23 +92,8 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Right Column - QR Code & Product Information */}
+          {/* Right Column - Product Information */}
           <div className="space-y-6">
-            {/* QR Code Section */}
-            {product.qr_code && (
-              <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 flex flex-col items-center">
-                <h2 className="text-2xl font-bold mb-4 text-gray-900">📱 Scan QR Code</h2>
-                <img
-                  src={product.qr_code}
-                  alt="Product QR Code"
-                  className="w-64 h-64 border-2 border-gray-300 rounded-lg"
-                />
-                <p className="text-sm text-gray-600 mt-4 text-center">
-                  Scan to view product details
-                </p>
-              </div>
-            )}
-
             {/* Product Details */}
             <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-lg border-2 border-gray-200">
               <h2 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">

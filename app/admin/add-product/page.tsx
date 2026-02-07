@@ -288,8 +288,8 @@ export default function AddProductPage() {
       <div key={field.id}>
         <label className="block text-gray-800 font-semibold mb-2">
           {field.field_label}
-          {field.is_required && <span className="text-red-500 ml-1">*</span>}
-          {field.max_length && field.max_length > 0 && (
+          {field.is_required === true && <span className="text-red-500 ml-1">*</span>}
+          {field.max_length && Number(field.max_length) > 0 && (
             <span className="text-sm text-gray-600 ml-2 font-normal">
               (Max {field.max_length} chars)
             </span>
