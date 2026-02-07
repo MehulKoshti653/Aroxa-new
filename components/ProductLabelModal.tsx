@@ -90,8 +90,8 @@ export default function ProductLabelModal({ product, onClose }: ProductLabelModa
               style={{ width: '600px', height: '300px' }}
             >
               <div className="flex items-center justify-between h-full px-6">
-                {/* Left Side - Values Only (No Labels) */}
-                <div className="flex-1 pr-8 flex flex-col justify-center space-y-2">
+                {/* Left Side - Values Only (No Labels) - All 3xl fonts */}
+                <div className="flex-1 pr-8 flex flex-col justify-center space-y-3">
                   {/* Batch Number */}
                   <div className="text-3xl font-bold text-black leading-tight">
                     {product.batch_no}
