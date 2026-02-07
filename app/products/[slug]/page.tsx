@@ -64,35 +64,75 @@ export default function ProductDetailPage() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
+        {/* Product Name - Top (Mobile/Desktop) */}
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-gray-900">{String(data.name || 'Product')}</h1>
+          {data.technical_name && (
+            <p className="text-xl md:text-2xl text-gray-600 font-medium">{String(data.technical_name)}</p>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          {/* Left Column - Product Image & Name */}
+          {/* Left Column - Product Image & Pricing */}
           <div>
             {/* Product Image */}
             {product.product_image ? (
-              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl border-4 border-gray-200">
+              <div className="mb-6 rounded-xl overflow-hidden shadow-2xl border-4 border-gray-200">
                 <img
                   src={product.product_image}
                   alt={String(data.name || 'Product')}
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[400px] object-cover"
                 />
               </div>
             ) : (
-              <div className="mb-8 h-[500px] bg-gradient-to-br from-[#7DD50B] to-[#6BC509] rounded-xl flex items-center justify-center shadow-2xl">
+              <div className="mb-6 h-[400px] bg-gradient-to-br from-[#7DD50B] to-[#6BC509] rounded-xl flex items-center justify-center shadow-2xl">
                 <span className="text-white text-9xl font-bold">
                   {String(data.name || 'P').charAt(0)}
                 </span>
               </div>
             )}
 
-            <div className="mb-8">
-              <h1 className="text-5xl font-bold mb-4 text-gray-900">{String(data.name || 'Product')}</h1>
-              {data.technical_name && (
-                <p className="text-2xl text-gray-600 font-medium">{String(data.technical_name)}</p>
-              )}
-            </div>
+            {/* Pricing - Below Image */}
+            {(data.price || data.unit_price) && (
+              <div className="p-6 rounded-xl shadow-2xl mb-4" style={{ background: 'linear-gradient(to right, #7DD50B, #6BC509)', color: '#ffffff' }}>
+                <h2 className="text-xl font-bold mb-4 flex items-center" style={{ color: '#ffffff' }}>
+                  <span className="mr-3">💰</span> Pricing
+                </h2>
+                <div className="space-y-3">
+                  {data.price && (
+                    <div className="flex justify-between items-center p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}>
+                      <span className="font-semibold">MRP:</span>
+                      <span className="text-3xl font-bold">
+                        ₹{data.price}
+                      </span>
+                    </div>
+                  )}
+                  {data.unit_price && (
+                    <div className="flex justify-between items-center p-3 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}>
+                      <span className="font-semibold">Unit Price:</span>
+                      <span className="text-2xl font-bold">
+                        ₹{data.unit_price}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Web Link Button */}
+            {data.web_link && (
+              <a
+                href={String(data.web_link)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block w-full text-center bg-[#7DD50B] text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-[#6BC509] transition-colors shadow-md"
+              >
+                🔗 Visit Product Website
+              </a>
+            )}
           </div>
 
-          {/* Right Column - Product Information */}
+          {/* Right Column - Product Details */}
           <div className="space-y-6">
             {/* Product Details */}
             <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl shadow-lg border-2 border-gray-200">
@@ -119,9 +159,9 @@ export default function ProductDetailPage() {
                   }
 
                   return (
-                    <div key={key} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 bg-white p-4 rounded-lg border border-gray-200">
+                    <div key={key} className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-2 bg-white p-4 rounded-lg border border-gray-200">
                       <span className="text-gray-700 font-semibold">{label}:</span>
-                      <span className="font-bold text-gray-900 break-all text-right">{displayValue}</span>
+                      <span className="font-bold text-gray-900 break-all lg:text-right">{displayValue}</span>
                     </div>
                   );
                 })}
@@ -132,45 +172,6 @@ export default function ProductDetailPage() {
                 </div>
               </div>
             </div>
-
-            {/* Pricing */}
-            {(data.price || data.unit_price) && (
-              <div className="p-8 rounded-xl shadow-2xl" style={{ background: 'linear-gradient(to right, #7DD50B, #6BC509)', color: '#ffffff' }}>
-                <h2 className="text-2xl font-bold mb-6 flex items-center" style={{ color: '#ffffff' }}>
-                  <span className="mr-3">💰</span> Pricing
-                </h2>
-                <div className="space-y-4">
-                  {data.price && (
-                    <div className="flex justify-between items-center p-4 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}>
-                      <span className="font-semibold text-lg">MRP:</span>
-                      <span className="text-4xl font-bold">
-                        ₹{data.price}
-                      </span>
-                    </div>
-                  )}
-                  {data.unit_price && (
-                    <div className="flex justify-between items-center p-4 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}>
-                      <span className="font-semibold text-lg">Unit Price:</span>
-                      <span className="text-3xl font-bold">
-                        ₹{data.unit_price}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Web Link Button */}
-            {data.web_link && (
-              <a
-                href={String(data.web_link)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-full text-center bg-[#7DD50B] text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-[#6BC509] transition-colors shadow-md"
-              >
-                🔗 Visit Product Website
-              </a>
-            )}
           </div>
         </div>
 
