@@ -90,94 +90,78 @@ export default function ProductLabelModal({ product, onClose }: ProductLabelModa
               style={{ width: '600px', height: '300px' }}
             >
               <div className="flex items-center justify-between h-full">
-                {/* Left Side - Product Info */}
-                <div className="flex-1 pr-6 flex flex-col justify-center space-y-3">
-                  <div className="mb-2">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                      {productName}
-                    </h3>
-                    <div className="h-1 w-16 bg-[#7DD50B]"></div>
+                {/* Left Side - 5 Fields Only */}
+                <div className="flex-1 pr-8 flex flex-col justify-center space-y-4">
+                  <div className="flex items-center">
+                    <span className="text-lg font-bold text-black w-36">
+                      Batch No:
+                    </span>
+                    <span className="text-xl font-bold text-black">
+                      {product.batch_no}
+                    </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-700 w-32">
-                        Batch No:
-                      </span>
-                      <span className="text-xl font-extrabold text-[#7DD50B]">
-                        {product.batch_no}
-                      </span>
-                    </div>
+                  <div className="flex items-center">
+                    <span className="text-lg font-bold text-black w-36">
+                      MFG:
+                    </span>
+                    <span className="text-lg font-bold text-black">
+                      {formatDate(String(data.mfg_date || ""))}
+                    </span>
+                  </div>
 
-                    <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-700 w-32">
-                        MFG:
-                      </span>
-                      <span className="text-lg font-semibold text-gray-900">
-                        {formatDate(String(data.mfg_date || ""))}
-                      </span>
-                    </div>
+                  <div className="flex items-center">
+                    <span className="text-lg font-bold text-black w-36">
+                      EXP:
+                    </span>
+                    <span className="text-lg font-bold text-black">
+                      {formatDate(String(data.exp_date || ""))}
+                    </span>
+                  </div>
 
-                    <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-700 w-32">
-                        EXP:
-                      </span>
-                      <span className="text-lg font-semibold text-gray-900">
-                        {formatDate(String(data.exp_date || ""))}
-                      </span>
-                    </div>
+                  <div className="flex items-center">
+                    <span className="text-lg font-bold text-black w-36">
+                      MRP:
+                    </span>
+                    <span className="text-xl font-bold text-black">
+                      {data.price ? `₹${data.price}` : 'N/A'}
+                    </span>
+                  </div>
 
-                    <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-700 w-32">
-                        MRP:
-                      </span>
-                      <span className="text-2xl font-extrabold text-[#7DD50B]">
-                        {data.price ? `₹${data.price}` : 'N/A'}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center">
-                      <span className="text-lg font-bold text-gray-700 w-32">
-                        Unit Price:
-                      </span>
-                      <span className="text-xl font-bold text-gray-900">
-                        {data.unit_price ? `₹${data.unit_price}` : 'N/A'}
-                      </span>
-                    </div>
+                  <div className="flex items-center">
+                    <span className="text-lg font-bold text-black w-36">
+                      Unit Price:
+                    </span>
+                    <span className="text-xl font-bold text-black">
+                      {data.unit_price ? `₹${data.unit_price}` : 'N/A'}
+                    </span>
                   </div>
                 </div>
 
                 {/* Right Side - QR Code */}
-                <div className="flex flex-col items-center justify-center border-l-4 border-gray-300 pl-6">
-                  <div className="bg-white p-3 border-4 border-gray-800 rounded-lg">
+                <div className="flex flex-col items-center justify-center">
+                  <div className="bg-white p-2 border-2 border-black">
                     {product.qr_code ? (
                       <img
                         src={product.qr_code}
                         alt="QR Code"
-                        className="w-48 h-48"
+                        className="w-40 h-40"
                       />
                     ) : (
-                      <div className="w-48 h-48 bg-gray-200 flex items-center justify-center">
+                      <div className="w-40 h-40 bg-gray-200 flex items-center justify-center">
                         <span className="text-gray-500">No QR</span>
                       </div>
                     )}
                   </div>
-                  <p className="text-sm font-bold text-gray-600 mt-2">
-                    SCAN ME
-                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Info Box */}
-          <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-4 mb-6">
             <p className="text-sm text-gray-700">
-              <strong>💡 Tip:</strong> This label is optimized for printing.
-              The QR code will open: <br />
-              <code className="bg-white px-2 py-1 rounded text-[#7DD50B] font-mono text-xs">
-                {process.env.NEXT_PUBLIC_APP_URL}/products/{product.slug}
-              </code>
+              <strong>💡 Tip:</strong> Simple label with 5 fields and QR code. Optimized for printing.
             </p>
           </div>
 
