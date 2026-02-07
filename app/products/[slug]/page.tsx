@@ -115,9 +115,9 @@ export default function ProductDetailPage() {
                   }
 
                   return (
-                    <div key={key} className="flex justify-between items-center bg-white p-4 rounded-lg border border-gray-200">
+                    <div key={key} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 bg-white p-4 rounded-lg border border-gray-200">
                       <span className="text-gray-700 font-semibold">{label}:</span>
-                      <span className="font-bold text-gray-900">{displayValue}</span>
+                      <span className="font-bold text-gray-900 break-all text-right">{displayValue}</span>
                     </div>
                   );
                 })}
